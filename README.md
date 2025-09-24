@@ -7,7 +7,7 @@ This service prevents users from receiving too many notifications, enforcing lim
 
 ## 🏗 Architecture
 
-The project is divided into three main layers:
+The project is divided into four main layers:
 
 ### 1️⃣ Domain
 - **Contains:** business entities and rules.
@@ -27,6 +27,11 @@ The project is divided into three main layers:
 - **Examples:** `NotificationRepositoryImpl` (SQLite), `NotificationGateway` (console/mock).  
 - **Responsibility:** persist notifications and deliver them to recipients. Abstracts infrastructure details from the rest of the app.
 
+### 4️⃣ Utils
+
+- **Contains:** helper classes and objects that support the project, mainly for test data and examples.
+- **Examples:** `SampleNotifications` provides a list of example Notification objects for use in the main function or in tests, centralizing and organizing test data.
+
 ---
 
 ## 📝 Features
@@ -43,7 +48,23 @@ The project is divided into three main layers:
 
 ---
 
+## 🧰 Requirements
+
+Java 17 (JDK 17)
+
+Gradle 8.x
+
+---
+
 ## 🚀 Running the Application
+
+This will:
+
+- Initialize the SQLite database (creating the notifications table if it doesn't exist).
+
+- Populate it with sample notifications.
+
+- Send the notifications through the NotificationService.
 
 ```bash
 ./gradlew run
