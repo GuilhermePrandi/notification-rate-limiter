@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class NotificationRepositoryImpl(databaseUrl: String = "jdbc:sqlite:notifications.db") : NotificationRepository {
+class NotificationRepositoryImpl(databaseUrl: String) : NotificationRepository {
 
     private val connection: Connection = DriverManager.getConnection(databaseUrl)
     private val formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME

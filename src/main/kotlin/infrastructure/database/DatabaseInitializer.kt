@@ -2,7 +2,7 @@ package infrastructure.database
 
 import java.sql.DriverManager
 
-class DatabaseInitializer(private val databaseUrl: String = "jdbc:sqlite:notifications.db") {
+class DatabaseInitializer(private val databaseUrl: String) {
 
     fun initialize() {
         DriverManager.getConnection(databaseUrl).use { connection ->

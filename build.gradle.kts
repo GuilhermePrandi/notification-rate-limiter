@@ -1,12 +1,12 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "2.0.20"
+    id("application")
 }
 
-tasks.register<JavaExec>("run") {
+application {
     mainClass.set("MainKt")
-    classpath = sourceSets["main"].runtimeClasspath
-    jvmArgs = listOf("--enable-native-access=ALL-UNNAMED")
 }
+
 kotlin {
     jvmToolchain(17)
 }
@@ -26,7 +26,7 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.11")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.0")
 }
 
 tasks.test {

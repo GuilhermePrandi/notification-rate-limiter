@@ -15,8 +15,8 @@ class NotificationServiceImpl(
     override fun send(notification: Notification) {
         try {
             if (rateLimiter.allow(notification)) {
-                gateway.send(notification.recipientId, notification.message)
                 logger.info("Notification sent: type=${notification.type}, recipient=${notification.recipientId}")
+                gateway.send(notification.recipientId, notification.message, notification.type)
             } else {
                 logger.warn("Notification blocked by rate limiter: type=${notification.type}, recipient=${notification.recipientId}")
             }
