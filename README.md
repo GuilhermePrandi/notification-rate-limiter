@@ -24,7 +24,7 @@ The project is divided into four main layers:
 
 ### 3️⃣ Infrastructure
 - **Contains:** concrete implementations for persistence and external systems.
-- **Examples:** `NotificationRepositoryImpl` (SQLite), `NotificationGateway` (console/mock).  
+- **Examples:** `NotificationRepositoryImpl` (SQLite), `EmailNotificationGatewayImpl` (console/mock).  
 - **Responsibility:** persist notifications and deliver them to recipients. Abstracts infrastructure details from the rest of the app.
 
 ### 4️⃣ Utils
@@ -42,8 +42,7 @@ The project is divided into four main layers:
     - `NEWS`: max 1 per day per recipient
     - `MARKETING`: max 3 per hour per recipient
 - Logging of sent and blocked notifications
-- Exception handling for failed deliveries
-- Testable architecture with unit and integration tests
+- Testable architecture with unit tests
 - **Future improvement:** dynamic configuration of rate limits via JSON, YAML, or `application.properties`.
 
 ---
